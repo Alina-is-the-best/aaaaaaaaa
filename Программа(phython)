@@ -1,0 +1,17 @@
+import serial
+a = True
+d = True
+try:
+    ser = serial.Serial('COM6', 9600)
+except Exception:
+    a = False
+    print('ошибка')
+if a:
+    while d:
+        try:
+            Input=input()
+            ser.write(Input.encode('utf-8').strip())
+        except:
+            d=False
+            print('Ошибка')
+    ser.close
